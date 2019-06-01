@@ -12,7 +12,7 @@
     </div>
     <div class="buttons buttons-in-header is-pulled-right">
       <a class="button create-question-button">
-        <strong>Eviar pergunta</strong>
+        <strong>Enviar pergunta</strong>
       </a>
     </div>
   </div>
