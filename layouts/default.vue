@@ -3,6 +3,8 @@
 
   <Navbar/>
 
+  <HomePageHeader/>
+
     <section class="main-content">
 
       <div class="container">
