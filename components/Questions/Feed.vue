@@ -1,0 +1,168 @@
+<template>
+  <div>
+    <Card
+      v-for="question in questions"
+      v-bind:key="question.id"
+      :question="question"
+    />
+  </div>
+</template>
+
+<script>
+import Card from '~/components/Card'
+  
+export default {
+  name: 'QuestionsFeed',
+
+  components: {
+    Card
+  },
+
+  data() {
+    return {
+      questions: [
+          {
+            "question_id": "1",
+            "title": "Qual a área de um trapézio?",
+            "body": "quero passar em GA, manda aí a fórmula do trapézio...",
+            "likes": "10",
+            "dislikes": "25",
+            "created_at": "2019-06-01 16:53:05",
+            "updated_at": "2019-06-01 16:53:05",
+            "user": {
+                "id": "1",
+                "name": "Anonymous",
+                "avatar": "/avatar/1.png",
+                "created_at": "2019-06-01 16:53:05",
+                "university": "ITSA"
+            },
+            "tags": [
+                {
+                    "tag_id": "1",
+                    "name": "geometria analítica",
+                    "parent": "matemática"
+                },
+                {
+                    "tag_id": "2",
+                    "name": "engenharia",
+                    "parent": "ciências exatas"
+                },
+                {
+                    "tag_id": "3",
+                    "name": "cálculo",
+                    "parent": "matemática"
+                },
+                {
+                    "tag_id": "4",
+                    "name": "unipipoca",
+                    "parent": "universidades"
+                }
+            ],
+            "answers": [
+                {
+                    "answer_id": "1",
+                    "body": "tem no livro, dá uma lida no primeiro capítulo.",
+                    "likes": "2",
+                    "dislikes": "3",
+                    "created_at": "2019-06-01 16:53:05",
+                    "updated_at": "2019-06-01 16:53:05",
+                    "user": {
+                        "id": "2",
+                        "name": "Anonymous2",
+                        "avatar": "/avatar/2.png",
+                        "created_at": "2019-06-01 16:53:05",
+                        "university": "FIPOC"
+                    }
+                },
+                {
+                    "answer_id": "2",
+                    "body": "tenta 2ダπl²",
+                    "likes": "21",
+                    "dislikes": "2",
+                    "created_at": "2019-06-01 16:53:05",
+                    "updated_at": "2019-06-01 16:53:05",
+                    "user": {
+                        "id": "3",
+                        "name": "1Anonymous",
+                        "avatar": "/avatar/3.png",
+                        "created_at": "2019-06-01 16:53:05",
+                        "university": "Unipipoca"
+                    }
+                }
+            ]
+        },
+        {
+            "question_id": "1",
+            "title": "Qual a área de um trapézio?",
+            "body": "quero passar em GA, manda aí a fórmula do trapézio...",
+            "likes": "10",
+            "dislikes": "25",
+            "created_at": "2019-06-01 16:53:05",
+            "updated_at": "2019-06-01 16:53:05",
+            "user": {
+                "id": "1",
+                "name": "Anonymous",
+                "avatar": "/avatar/1.png",
+                "created_at": "2019-06-01 16:53:05",
+                "university": "ITSA"
+            },
+            "tags": [
+                {
+                    "tag_id": "1",
+                    "name": "geometria analítica",
+                    "parent": "matemática"
+                },
+                {
+                    "tag_id": "2",
+                    "name": "engenharia",
+                    "parent": "ciências exatas"
+                },
+                {
+                    "tag_id": "3",
+                    "name": "cálculo",
+                    "parent": "matemática"
+                },
+                {
+                    "tag_id": "4",
+                    "name": "unipipoca",
+                    "parent": "universidades"
+                }
+            ],
+            "answers": [
+                {
+                    "answer_id": "1",
+                    "body": "tem no livro, dá uma lida no primeiro capítulo.",
+                    "likes": "2",
+                    "dislikes": "3",
+                    "created_at": "2019-06-01 16:53:05",
+                    "updated_at": "2019-06-01 16:53:05",
+                    "user": {
+                        "id": "2",
+                        "name": "Anonymous2",
+                        "avatar": "/avatar/2.png",
+                        "created_at": "2019-06-01 16:53:05",
+                        "university": "FIPOC"
+                    }
+                },
+                {
+                    "answer_id": "2",
+                    "body": "tenta 2ダπl²",
+                    "likes": "21",
+                    "dislikes": "2",
+                    "created_at": "2019-06-01 16:53:05",
+                    "updated_at": "2019-06-01 16:53:05",
+                    "user": {
+                        "id": "3",
+                        "name": "1Anonymous",
+                        "avatar": "/avatar/3.png",
+                        "created_at": "2019-06-01 16:53:05",
+                        "university": "Unipipoca"
+                    }
+                }
+            ]
+        }
+      ]
+    }
+  }
+}
+</script>
