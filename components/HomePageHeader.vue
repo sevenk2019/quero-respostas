@@ -4,7 +4,9 @@
       <div class="hero-body">
         <div class="container">
           <div class="columns">
-            <!-- <div class="column is-4 not-logged">
+            <div
+              v-if="!isLogged"
+              class="column is-4 not-logged">
               <p class="title text-white is-3">Bem vindo ao Quero Saber</p>
               <p class="subtitle text-white__subtitle">
                 Uma comunidade para obter e compartilhar conhecimento, 
@@ -18,9 +20,11 @@
                   <strong>Participar</strong>
                 </a>
               </div>
-            </div> -->
+            </div>
             
-            <div class="column is-4 logged">
+            <div 
+              v-if="isLogged"
+              class="column is-4 logged">
               <div class="box box-user-info">
                 <div class="user">
                   <figure class="image is-64x64 user-image">
@@ -84,7 +88,16 @@ export default {
   name: 'HomePageHeader',
   components: {
     FormQuestion,
-  }
+  },
+
+  computed: {
+    authorization() {
+      return this.$store.state.token.authorization
+    },
+    isLogged() {
+      return this.authorization.length > 0
+    },
+  },
 }
 </script>
 

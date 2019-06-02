@@ -12,7 +12,7 @@
                 name="email"
                 type="email"
                 v-model="email"
-                placeholder="Your email"
+                placeholder="E-mail"
                 required>
               </b-input>
             </b-field>
@@ -23,7 +23,7 @@
                 type="password"
                 v-model="password"
                 password-reveal
-                placeholder="Your password"
+                placeholder="Senha"
                 required>
               </b-input>
             </b-field>
@@ -35,7 +35,7 @@
                 name="name"
                 type="name"
                 v-model="name"
-                placeholder="Your name">
+                placeholder="Nome">
               </b-input>
             </b-field>
 
@@ -44,7 +44,7 @@
                 name="email"
                 type="email"
                 v-model="email"
-                placeholder="Your email"
+                placeholder="E-mail"
                 required>
               </b-input>
             </b-field>
@@ -55,7 +55,7 @@
                 type="password"
                 v-model="password"
                 password-reveal
-                placeholder="Your password"
+                placeholder="Senha"
                 required>
               </b-input>
             </b-field>
