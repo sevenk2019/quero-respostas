@@ -1,5 +1,5 @@
 <template>
-  <form v-on:submit.prevent="auth" class="card" style="border-radius: 10px;">
+  <form v-on:submit.prevent="auth" class="card" style="border-radius: 20px;">
     <div class="modal-card" style="width: auto">
       <b-tabs 
         v-model="activeTab"

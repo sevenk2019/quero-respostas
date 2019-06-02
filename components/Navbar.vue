@@ -32,17 +32,16 @@
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-end">
             <a class="navbar-item">
-              Home
+              Cursos de idiomas
             </a>
-
             <a class="navbar-item">
-              Documentation
+              Bolsas de estudos
             </a>
 
             <div class="buttons">
               <button class="button secondary-button"
                 @click="toggleLogin">
-                {{ loggedIn ? 'sair' : 'entrar' }}
+                {{ loggedIn ? 'Sair' : 'Entrar' }}
               </button>
             </div>
           </div>
