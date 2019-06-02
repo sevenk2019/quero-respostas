@@ -93,7 +93,7 @@ export default {
     }
   },
 
-  async created() {
+  async mounted() {
     try {
       const self = this;
       const userSkills = await this.$axios.$get('/user_tags', {
