@@ -3,6 +3,9 @@
       min-height: 5.25rem;
   }
 }
+.navbar-item img {
+  max-height: 2rem;
+}
 .is-primary {
   background-color: #2A1E5C !important
 }
@@ -45,7 +48,7 @@
   margin-right: 10px;
 }
 .logo-type {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: bold;
 }
 .logo-type__quero {
@@ -73,9 +76,10 @@
   background-color: #fff;
 }
 
-.textarea {
+.input, .textarea {
   font-size: 18px; 
   border: none;
+  border-color: #fff;
   overflow: auto;
   outline: none;
   -webkit-box-shadow: none;

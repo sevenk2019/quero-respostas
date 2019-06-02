@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.92.4 (33fec40, 2019-01-16)"
-   sodipodi:docname="logo.svg">
+   sodipodi:docname="logo-branco.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="659.22359"
+     inkscape:cx="496.58903"
      inkscape:cy="-15.872435"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -56,7 +56,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -66,21 +66,21 @@
      id="layer1"
      transform="translate(-78.314014,-132.46695)">
     <path
-       style="opacity:1;fill:#2A1E5C;fill-opacity:1;stroke:none;stroke-width:1.21800005;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.21800005;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 233.31402,132.46695 a 155,155 0 0 0 -155.000006,155 155,155 0 0 0 155.000006,155 155,155 0 0 0 15.25976,-0.91015 l 119.13086,0 -29.88281,-39.84375 a 155,155 0 0 0 50.49219,-114.2461 155,155 0 0 0 -155,-155 z"
        id="path3349"
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.71301174px;line-height:0%;font-family:KacstFarsi;-inkscape-font-specification:KacstFarsi;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.89275104px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="157.48973"
-       y="402.51886"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.45444012px;line-height:0%;font-family:KacstFarsi;-inkscape-font-specification:KacstFarsi;letter-spacing:0px;word-spacing:0px;fill:#000080;fill-opacity:1;stroke:none;stroke-width:1.03787005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="156.6696"
+       y="412.63358"
        id="text3354"
-       transform="scale(1.0721079,0.93274193)"><tspan
+       transform="scale(1.03787,0.96351178)"><tspan
          sodipodi:role="line"
          id="tspan3356"
-         x="157.48973"
-         y="402.51886"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:260.83581543px;line-height:1.25;font-family:'Noto Sans CJK TC';-inkscape-font-specification:'Noto Sans CJK TC';stroke-width:0.89275104px">?</tspan></text>
+         x="156.6696"
+         y="412.63358"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:303.23535156px;line-height:1.25;font-family:'Noto Sans CJK TC';-inkscape-font-specification:'Noto Sans CJK TC';stroke-width:1.03787005px;fill:#000080;">?</tspan></text>
   </g>
 </svg>
