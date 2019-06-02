@@ -113,6 +113,7 @@ export default {
       .then(function (response) {
         self.$store.commit('token/add', response.jwt);
         self.$emit('login');
+        
       })
       .catch(function (error) {
         console.log(error);

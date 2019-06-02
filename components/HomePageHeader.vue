@@ -72,10 +72,11 @@ export default {
   },
 
   computed: {
-    isLogged() {
+    isLogged: function() {
+      this.firstAttempt = true;
       return this.$store.state.token.authorization.length > 0
     },
-    token() {
+    token: function() {
       return this.$store.state.token.authorization
     }
   },
@@ -93,19 +94,22 @@ export default {
     }
   },
 
-  async mounted() {
-    try {
-      const self = this;
-      const userSkills = await this.$axios.$get('/user_tags', {
-        headers: {
-          Authorization: self.token ? `Bearer ${self.token}` : '',
-          'Content-Type': 'application/json'
-        }
-      });
-      
-      this.userSkills = userSkills.user;
-    } catch (error) {
-      console.log(error);
+  async beforeUpdate() {
+    if (this.isLogged && this.firstAttempt) {
+      this.firstAttempt = false;
+      try {
+        const self = this;
+        const userSkills = await this.$axios.$get('/user_tags', {
+          headers: {
+            Authorization: `Bearer ${self.$store.state.token.authorization}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        this.userSkills = userSkills.user;
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 }
