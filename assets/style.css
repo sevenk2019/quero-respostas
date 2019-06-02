@@ -1,9 +1,14 @@
+@media screen and (min-width: 1024px) {
+  .navbar {
+      min-height: 5.25rem;
+  }
+}
 .is-primary {
-  background-color: #3CA4BB !important
+  background-color: #2A1E5C !important
 }
 
 .primary-button {
-  background-color: #d19112;
+  background-color: #FF9B00;
   color:#ffff;
   border: none;
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -15,15 +20,15 @@
   font-size: 18px;
 }
 .primary-button:hover {
-  background-color: #db9f30;
+  background-color: #FF9B00;
   color: #fff;
 }
 .secundary-button {
-  color: #3CA4BB;
+  color: #2A1E5C;
 }
 .create-question-button {
-  background-color: #fff;
-  color: #3CA4BB;
+  background-color: #2A1E5C;
+  color: #fff;
   border: none;
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -34,8 +39,7 @@
   font-size: 18px;
 }
 .create-question-button:hover {
-  background-color: #3CA4BB;
-  color: #fff;
+  color: #FF9B00;
 }
 .logo {
   margin-right: 10px;
@@ -45,15 +49,28 @@
   font-weight: bold;
 }
 .logo-type__quero {
-  color: #3CA4BB;
+  color: #2A1E5C;
   padding-right: 4px;
 }
 .logo-type__respostas {
-  color: #d19112;
+  color: #FF9B00;
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  background-image: linear-gradient(#3559a7, #2A1E5C);
+  transform: skewY(-4.5deg);
+  transform-origin: top left;
 }
 
 .header-content {
-  background-color: #3CA4BB;
+  background-color: #fff;
 }
 
 .textarea {
@@ -123,5 +140,25 @@
 }
 
 .columns {
+  margin: 0;
+}
+
+.tabs li.is-active a {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  color: #fff !important;
+  background-color: #FF9B00;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+}
+.tabs li.is-active a {
+  border-bottom-color: #FF9B00;
+}
+
+hr {
+  border: 1px solid #e0e0e0;
   margin: 0;
 }

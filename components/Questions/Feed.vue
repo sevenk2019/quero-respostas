@@ -1,5 +1,7 @@
 <template>
-  <b-tabs v-model="activeTab">
+  <b-tabs 
+    v-model="activeTab"
+  >
 
     <b-tab-item label="Favoritos" class="has-text-primary">
       <Card

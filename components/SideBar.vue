@@ -2,7 +2,7 @@
   <div class="card-top-users">
     <div class="box has-text-centered" style="padding: 0; border-radius: 20px;">
       <div class="panel-orange">
-        <span class="top-users">Os sábios</span>
+        <span class="top-users">Os mais sábios</span>
       </div>
       <div class="user">
         <figure class="image is-64x64 user-image">
@@ -55,7 +55,7 @@ export default {
 <style>
   .panel-orange {
     max-width: 100%;
-    background-color: #db9f30;
+    background-color: #FF9B00;
     padding: 20px;
     border-radius: 20px 20px 0 0;
     margin-bottom: 15px;
@@ -63,7 +63,7 @@ export default {
 
   .panel-blue {
     max-width: 100%;
-    background-color: #3CA4BB;
+    background-color: #2A1E5C;
     padding: 20px;
     border-radius: 20px 20px 0 0;
     margin-bottom: 15px;
@@ -85,8 +85,7 @@ export default {
   }
   .user {
     padding: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
+    text-align: center;
   }
   .user-name {
    text-align: left;
