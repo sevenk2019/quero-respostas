@@ -22,7 +22,7 @@
           <div class="buttons">
             <b-button
               v-for="tag in question.tags"
-              v-bind:key="tag.tag_id"
+              v-bind:key="tag.id"
               tag="a"
               href="#"
               target="_blank"

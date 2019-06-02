@@ -1,4 +1,5 @@
 <template>
+  <div>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="container">
         <div class="navbar-brand">
@@ -39,19 +40,58 @@
             </a>
 
             <div class="buttons">
-              <a class="button secondary-button">
-                Entrar
-              </a>
+              <button class="button secondary-button"
+                @click="toggleLogin">
+                {{ loggedIn ? 'sair' : 'entrar' }}
+              </button>
             </div>
           </div>
         </div>
       </div>
     </nav>
+
+    <b-modal :active.sync="isComponentModalActive" has-modal-card>
+        <AuthForm @login="userLoggedIn"/>
+    </b-modal>
+  </div>
 </template>
 
 <script>
+import AuthForm from '~/components/AuthForm'
+import axios from 'axios'
+
 export default {
   name: 'Navbar',
+  components: {
+    AuthForm
+  },
+
+  data() {
+    return {
+      isComponentModalActive: false,
+      loggedIn: this.$store.state.token.authorization.length > 0 ? true : false
+    }
+  },
+
+  methods: {
+    toggleLogin: function() {
+      if (this.loggedIn) {
+        this.loggedIn = false
+        this.$store.commit('token/remove');
+      }
+      else
+        this.isComponentModalActive = true
+    },
+    userLoggedIn: function() {
+      this.isComponentModalActive = false;
+      console.log("dadsaasddas::: " + this.$store.state.token.authorization);
+      
+      if (this.$store.state.token.authorization.length > 0)
+        this.loggedIn = true
+      else
+        this.loggedIn = false
+    }
+  }
 }
 </script>
 
