@@ -51,6 +51,10 @@ export default {
   },
 
   computed: {
+    isLogged: function() {
+      this.firstAttempt = true;
+      return this.$store.state.token.authorization.length > 0
+    },
     authorization() {
       return this.$store.state.token.authorization
     },
@@ -66,13 +70,30 @@ export default {
     try {
       const allQuestions = await this.$axios.$get('/feed');
       this.$store.commit('questions/setAllQuestions', allQuestions);
-      
-      if (this.authorization.length > 0) {
-        const followingQuestions = await this.$axios.$get('/feed/following');
-        this.$store.commit('questions/setFollowingQuestions', followingQuestions);
-      }
     } catch (error) {
-      console.log(error);
+      console.log(error);       
+    }
+  },
+
+  async beforeUpdate() {
+    
+    if (this.isLogged && this.firstAttempt) {
+      try {
+        
+        if (this.authorization.length > 0) {
+          this.firstAttempt = false;
+          const self = this;
+          const followingQuestions = await this.$axios.$get('/feed/following', {
+          headers: {
+            Authorization: `Bearer ${self.$store.state.token.authorization}`,
+            'Content-Type': 'application/json'
+          }
+        });
+          this.$store.commit('questions/setFollowingQuestions', followingQuestions);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 }
