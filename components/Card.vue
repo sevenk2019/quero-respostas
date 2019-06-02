@@ -19,7 +19,7 @@
         </div>
 
         <div class="content column is-4">
-          <div class="buttons">
+          <div class="buttons columns is-multiline">
             <b-button
               v-for="tag in question.tags"
               v-bind:key="tag.id"
@@ -27,13 +27,13 @@
               href="#"
               target="_blank"
               size="is-small"
-              class="tags">
+              class="tags column is-narrow">
               {{ tag.name }}
             </b-button>
           </div>
         </div>
 
-        <div class="content column">
+        <div class="content column is-12">
           <hr>
           <div class="columns">
             <div class="column">
@@ -53,11 +53,16 @@
             </div>
 
             <div class="column">
-              <b-icon
-                icon="comment"
-                size="is-small">
-              </b-icon>
-              <span class="is-size-7">{{ question.answers.length }} Respostas</span>
+              <a
+                slot="trigger"
+                aria-controls="contentIdForA11y1"
+                @click="seeAnswers = !seeAnswers">
+                <b-icon
+                  icon="comment"
+                  size="is-small">
+                </b-icon>
+                <span class="is-size-7">{{ question.answers.length }} Respostas</span>
+              </a>
             </div>
 
             <div class="column">
@@ -69,6 +74,58 @@
             </div>
           </div>
         </div>
+
+        <div class="column is-12">
+          <b-collapse :open.sync="seeAnswers" aria-id="contentIdForA11y1">
+            <div
+              v-for="(answer, index) in question.answers"
+              v-bind:key="answer.id"
+            >
+              <div class="notification">
+                <div class="columns is-multiline">
+                  <div class="media column is-3">
+                    <div class="media-left">
+                      <p class="image is-64x64">
+                        <img class="is-rounded" :src="`https://api.adorable.io/avatar/${answer.user.id}`">
+                      </p>
+                      <p class="title is-7">{{ answer.user.name }}</p>
+                      <p class="subtitle is-7">{{ answer.user.university }}</p>
+                    </div>
+                  </div>
+
+                  <div class="column columns is-multiline">
+                    <div class="column is-12">
+                      <p class="body is-7">{{ answer.body }}</p>
+                      <p class="subtitle is-7"><time ><small>{{ getOnlyDate(answer.created_at) }}</small></time></p>
+                    </div>
+
+                    <div class="content column" >
+                      <hr>
+                      <div class="columns">
+                        <div class="column">
+                          <b-icon
+                            icon="thumb-up"
+                            size="is-small">
+                          </b-icon>
+                          <span class="is-size-7">{{ answer.likes_count }} Gostei</span>
+                        </div>
+
+                        <div class="column">
+                          <b-icon
+                            icon="thumb-down"
+                            size="is-small">
+                          </b-icon>
+                          <span class="is-size-7">{{ answer.dislikes_count }} Não gostei</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr v-if="index < question.answers.length - 1">
+            </div>
+          </b-collapse>
+        </div>
       </div>
     </div>
   </div>
@@ -77,6 +134,13 @@
 <script>
 export default {
   props: ['question'],
+
+  data() {
+    return {
+      seeAnswers: false
+    }
+  },
+
   methods: {
     answerAge: function(date) {
       const nowTime = Date.now();
