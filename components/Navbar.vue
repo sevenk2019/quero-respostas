@@ -83,8 +83,6 @@ export default {
     },
     userLoggedIn: function() {
       this.isComponentModalActive = false;
-      console.log("dadsaasddas::: " + this.$store.state.token.authorization);
-      
       if (this.$store.state.token.authorization.length > 0)
         this.loggedIn = true
       else
