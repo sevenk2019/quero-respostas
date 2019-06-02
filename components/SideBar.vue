@@ -78,7 +78,7 @@ export default {
 <style>
   .panel-orange {
     max-width: 100%;
-    background-color: #FF9B00;
+    background-color: #ffbc00;
     padding: 6px;
     border-radius: 20px 20px 0 0;
     margin-bottom: 15px;
@@ -86,7 +86,7 @@ export default {
 
   .panel-blue {
     max-width: 100%;
-    background-color: #2A1E5C;
+    background-color: #3c1eb7;
     padding: 6px;
     border-radius: 20px 20px 0 0;
     margin-bottom: 15px;

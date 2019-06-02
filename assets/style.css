@@ -10,6 +10,9 @@
 .is-primary {
   background-color: #2A1E5C !important
 }
+.is-danger {
+  background-color: #2A1E5C !important
+}
 
 a.navbar-item:hover{
   color: #FF9B00 !important;
@@ -36,7 +39,7 @@ a.navbar-item:hover{
   color: #2A1E5C;
 }
 .create-question-button {
-  background-color: #2A1E5C;
+  background-color: #f0a800;
   color: #fff;
   border: none;
   -webkit-box-shadow: 2px 3px 12px 1px rgba(14,30,37,.12);
@@ -48,7 +51,8 @@ a.navbar-item:hover{
   font-size: 18px;
 }
 .create-question-button:hover {
-  color: #FF9B00;
+  background-color: hsl(42, 100%, 52%);
+  color: #fff;
 }
 .logo {
   margin-right: 10px;
@@ -58,11 +62,11 @@ a.navbar-item:hover{
   font-weight: bold;
 }
 .logo-type__quero {
-  color: #2A1E5C;
+  color: #4e6ed0;
   padding-right: 4px;
 }
 .logo-type__respostas {
-  color: #FF9B00;
+  color: #f0a800;
 }
 
 .header-background {
@@ -72,8 +76,8 @@ a.navbar-item:hover{
   right: 0;
   left: 0;
   width: 100%;
-  height: 55%;
-  background-image: linear-gradient(#3559a7, #2A1E5C);
+  height: 65%;
+  background-image: linear-gradient(#517ee0, #422aa7);
   transform: skewY(-4.5deg);
   transform-origin: top left;
 }
