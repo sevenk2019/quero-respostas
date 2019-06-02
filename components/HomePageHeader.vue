@@ -98,7 +98,7 @@ export default {
       const self = this;
       const userSkills = await this.$axios.$get('/user_tags', {
         headers: {
-          Authorization: `Bearer ${self.token}`,
+          Authorization: self.token ? `Bearer ${self.token}` : '',
           'Content-Type': 'application/json'
         }
       });
