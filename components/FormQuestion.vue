@@ -7,10 +7,10 @@
         </div>
       </div>
     </div>
-    <div class="buttons buttons-in-header is-pulled-left">
+    <div class="buttons">
       <input class="input input-tags" style="width: 750px;" type="text" placeholder="Informe as tagas relacionadas as suas dúvidas, por exemplo: Ciências Exatas, Matemática, ..."/>
     </div>
-    <div class="buttons buttons-in-header is-pulled-right">
+    <div class="buttons is-pulled-right">
       <a class="button create-question-button">
         <strong>Enviar pergunta</strong>
       </a>
