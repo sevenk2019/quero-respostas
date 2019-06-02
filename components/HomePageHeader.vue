@@ -31,17 +31,20 @@
                     <img class="is-64x64" src="https://api.adorable.io/avatars/64/abott@adorable.png" >
                   </figure>
                   <div class="user-info">
-                    <p class="user-name user-logged">sss</p>
-                    <p class="user-score user-logged"><b>Pontuação:</b> sss</p>
+                    <p class="user-name user-logged">{{ userSkills.name }}</p>
+                    <p class="user-score user-logged"><b>Pontuação:</b> {{ userSkills.points }}</p>
+                    <p class="subtitle">{{ userSkills.university }}</p>
                     <hr>
                     <div class="skilss">
                       <p class="title-skill"><b>Nivel de habilidades em:</b></p>
-                      <p class="category-skills">Ciências Exatas</p>
-                      <progress class="progress is-danger" value="15" max="100">15%</progress>
-                      <p class="category-skills">Ciências da Natureza</p>
-                      <progress class="progress is-success" value="30" max="100">30%</progress>
-                      <p class="category-skills">Ciências Humanas</p>
-                      <progress class="progress is-info" value="45" max="100">45%</progress>                                         
+
+                      <div
+                        v-for="(skill, index) in userSkills.skills"
+                        v-bind:key="skill.id">
+                        <p class="category-skills">{{ skill.name }}</p>
+                        <progress class="progress is-danger" value="15" max="100">{{ Math.pow(2,index+1)*10 }}%</progress>
+                      </div>  
+
                     </div>
                   </div>
                 </div>
@@ -57,6 +60,37 @@
       </div>
     </section>
 </template>
+
+<script>
+import FormQuestion from '~/components/FormQuestion'
+export default {
+  name: 'HomePageHeader',
+  components: {
+    FormQuestion,
+  },
+
+  data() {
+    return {
+      userSkills: {}
+    }
+  },
+
+  async created() {
+    try {
+      const userSkills = await this.$axios.$get('/user_tags', {}, {
+        headers: {
+          Authorization: `Bearer ${self.$store.state.token.authorization}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      this.userSkills = userSkills.user;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+</script>
 
 <style>
   .user-logged {
@@ -80,24 +114,4 @@
   }
 
 </style>
-
-
-<script>
-import FormQuestion from '~/components/FormQuestion'
-export default {
-  name: 'HomePageHeader',
-  components: {
-    FormQuestion,
-  },
-
-  computed: {
-    authorization() {
-      return this.$store.state.token.authorization
-    },
-    isLogged() {
-      return this.authorization.length > 0
-    },
-  },
-}
-</script>
 
