@@ -78,7 +78,7 @@
         <div class="column is-12">
           <b-collapse :open.sync="seeAnswers" aria-id="contentIdForA11y1">
             <div
-              v-for="(answer, index) in question.answers"
+              v-for="answer in question.answers"
               v-bind:key="answer.id"
             >
               <div class="notification">
@@ -122,8 +122,21 @@
                   </div>
                 </div>
               </div>
-              <hr v-if="index < question.answers.length - 1">
+              <hr>
             </div>
+            <form v-on:submit.prevent="postAnswer" class="card ">
+              <section class="modal-card-body has-background-grey-lighter">
+                <b-field label="Responder">
+                  <b-input
+                    name="answer"
+                    type="textarea"
+                    v-model="answer"
+                    placeholder="Escreva sua resposta aqui...">
+                  </b-input>
+                </b-field>
+                <button class="button is-primary">Enviar Resposta</button>
+              </section>
+            </form>
           </b-collapse>
         </div>
       </div>
@@ -137,7 +150,8 @@ export default {
 
   data() {
     return {
-      seeAnswers: false
+      seeAnswers: false,
+      answer: ''
     }
   },
 
@@ -157,7 +171,36 @@ export default {
     },
     getOnlyDate: function(date) {
       return `${new Date(date).getDate()}/${new Date(date).getMonth()}/${new Date(date).getFullYear()}`
-    }
+    },
+    postAnswer: function() {
+      if (this.$store.state.token.authorization.length > 0) {
+        let body = {
+          answer: {
+            question_id: this.question.id,
+            body: this.answer
+          }
+        }
+  
+        const self = this;
+        this.$axios
+        .$post('/answers', body, {
+          headers: {
+            Authorization: `Bearer ${self.$store.state.token.authorization}`,
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(function (response) {
+          self.$store.commit('questions/newAnswer', response);
+          alert("Resposta enviada com sucesso!");
+        })
+        .catch(function (error) {
+          alert("Desculpa, não conseguimos enviar sua resposta :(")
+          console.log(error);
+        });
+      } else {
+        alert("Por favor, entre no nosso sistema antes de enviar a sua resposta!");
+      }
+    },
   }
 }
 </script>
