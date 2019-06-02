@@ -21,10 +21,13 @@
     <div class="buttons is-pulled-right">
       <b-button
         class="button create-question-button"
-        @click="postQuestion">
-        <strong>Enviar pergunta</strong>
+      >
+      <strong>Enviar pergunta</strong>
       </b-button>
     </div>
+    <b-modal :active.sync="isComponentModalActive" has-modal-card>
+      <AddSkills/>
+    </b-modal>
   </div>
 </template>
 
@@ -43,19 +46,22 @@
 import FormQuestion from '~/components/FormQuestion'
 import Multiselect from 'vue-multiselect'
 import axios from 'axios'
+import AddSkills from '~/components/AddSkills'
 
 export default {
   name: 'FormQuestion',
   components: {
     FormQuestion,
-    Multiselect
+    Multiselect,
+    AddSkills,
   },
   data () {
     return {
       title: '',
       body: '',
       selectedTags: [],
-      tags: []
+      tags: [],
+      isComponentModalActive: false,
     }
   },
   async created() {

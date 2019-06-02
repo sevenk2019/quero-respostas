@@ -84,6 +84,7 @@ a.navbar-item:hover{
 
 .header-content {
   background-color: #fff;
+  padding-top: 85px;
 }
 
 .input, .textarea {
