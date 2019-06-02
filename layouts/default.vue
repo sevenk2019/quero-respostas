@@ -24,6 +24,12 @@ export default {
     Navbar,
     HomePageHeader,
     Footer,
+  },
+
+  head() {
+    return {
+      title: 'Quero Saber'
+    }
   }
 }
 </script>
