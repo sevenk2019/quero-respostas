@@ -41,7 +41,14 @@ export default {
   modules: [
     // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
+    '@nuxtjs/axios',
   ],
+
+  axios: {
+    baseURL: 'https://blooming-garden-21049.herokuapp.com',
+    proxyHeaders: false,
+    credentials: false
+  },
 
   /*
   ** Build configuration
