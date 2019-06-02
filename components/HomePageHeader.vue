@@ -28,12 +28,12 @@
               <div class="box box-user-info">
                 <div class="user">
                   <figure class="image is-64x64 user-image">
-                    <img class="is-64x64" src="https://api.adorable.io/avatars/64/abott@adorable.png" >
+                    <img class="is-64x64" :src="`https://api.adorable.io/avatar/${userSkills.id}`">
                   </figure>
                   <div class="user-info">
                     <p class="user-name user-logged">{{ userSkills.name }}</p>
                     <p class="user-score user-logged"><b>Pontuação:</b> {{ userSkills.points }}</p>
-                    <p class="subtitle">{{ userSkills.university }}</p>
+                    <p class="subtitle is-7">{{ userSkills.university }}</p>
                     <hr>
                     <div class="skilss">
                       <p class="title-skill"><b>Nivel de habilidades em:</b></p>
@@ -41,9 +41,11 @@
                       <div
                         v-for="(skill, index) in userSkills.skills"
                         v-bind:key="skill.id">
-                        <p class="category-skills">{{ skill.name }}</p>
-                        <progress class="progress is-danger" value="15" max="100">{{ Math.pow(2,index+1)*10 }}%</progress>
-                      </div>  
+                        <div v-if="index < 3">
+                          <p class="category-skills">{{ skill.name }}</p>
+                          <progress :class="`progress ${colorClass(index)}`" :value="Math.pow(2,(index+1))*10" max="100">{{ `${Math.pow(2,(index+1))*10}%` }}</progress>
+                        </div>
+                      </div>
 
                     </div>
                   </div>
@@ -69,18 +71,34 @@ export default {
     FormQuestion,
   },
 
+  computed: {
+    isLogged() {
+      return this.$store.state.token.authorization.length > 0
+    },
+    token() {
+      return this.$store.state.token.authorization
+    }
+  },
+
   data() {
     return {
-      userSkills: {},
-      isLogged: this.$store.state.token.authorization.length > 0
+      userSkills: {}
+    }
+  },
+
+  methods: {
+    colorClass: function(index) {
+      const colorClasses = ['is-danger','is-link','is-info'];
+      return colorClasses[index];
     }
   },
 
   async created() {
     try {
-      const userSkills = await this.$axios.$get('/user_tags', {}, {
+      const self = this;
+      const userSkills = await this.$axios.$get('/user_tags', {
         headers: {
-          Authorization: `Bearer ${self.$store.state.token.authorization}`,
+          Authorization: `Bearer ${self.token}`,
           'Content-Type': 'application/json'
         }
       });
