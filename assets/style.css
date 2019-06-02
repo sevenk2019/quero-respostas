@@ -115,3 +115,12 @@
   margin: 0 !important;
   padding: 10px !important;
 }
+
+.column {
+  margin: 0 !important;
+  padding: 8px !important;
+}
+
+.columns {
+  margin: 0;
+}
