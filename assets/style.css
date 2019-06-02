@@ -3,6 +3,7 @@
       min-height: 5.25rem;
   }
 }
+
 .navbar-item img {
   max-height: 2rem;
 }
@@ -155,7 +156,7 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   color: #fff !important;
   background-color: #FF9B00;
-  border-radius: 10px 10px 0 0;
+  border-radius: 20px 20px 0 0;
   font-weight: bold;
 }
 .tabs li.is-active a {
@@ -168,4 +169,12 @@
 hr {
   border: 1px solid #e0e0e0;
   margin: 0;
+}
+
+.tags {
+  background: #41b883;
+  color: #fff;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  border: none !important;
 }

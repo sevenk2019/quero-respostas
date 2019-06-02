@@ -14,7 +14,8 @@
         v-model="selectedTags"
         :options="tags"
         :multiple="true"
-        class="is-fullwidth">
+        class="select-tags is-fullwidth"
+        placeholder="Selecione as tags que mais se relacionam com a sua dúvida">
       </multiselect>
     </div>
     <div class="buttons is-pulled-right">

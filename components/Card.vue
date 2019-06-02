@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="card-question box">
     <div class="card-content columns is-multiline">
       <div class="media column is-2">
         <div class="media-left">
@@ -27,7 +27,7 @@
               href="#"
               target="_blank"
               size="is-small"
-              class="is-primary">
+              class="tags">
               {{ tag.name }}
             </b-button>
           </div>
@@ -101,5 +101,9 @@ export default {
 <style scoped>
 .image {
   margin-bottom: 10px;
+}
+
+.card-question {
+  border-radius: 20px;
 }
 </style>

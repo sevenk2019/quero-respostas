@@ -11,6 +11,8 @@
         <nuxt />
       </div>
 
+    <Footer />
+
     </section>
   </div>
 </template>
@@ -22,10 +24,12 @@
 <script>
 import Navbar from '~/components/Navbar';
 import HomePageHeader from '~/components/HomePageHeader'
+import Footer from '~/components/Footer'
 export default {
   components: {
     Navbar,
     HomePageHeader,
+    Footer,
   }
 }
 </script>
