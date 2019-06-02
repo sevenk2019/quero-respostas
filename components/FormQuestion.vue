@@ -3,13 +3,13 @@
     <div class="question-form">
       <div class="field">
         <div class="control">
-          <input class="input" v-model="title" type="text" placeholder="Titulo da pergunta"/>
+          <input class="input" v-model="title" type="text" placeholder="Título da pergunta"/>
           <hr>  
           <textarea class="textarea" v-model="body" placeholder="O que você quer saber?"></textarea>
         </div>
       </div>
     </div>
-    <div class="buttons is-fullwidth">
+    <div class="buttons is-fullwidth tag-placeholder">
       <multiselect
         v-model="selectedTags"
         :options="tags"
@@ -30,12 +30,11 @@
 
 <style>
 .input::placeholder {
-  color: #2A1E5C !important;
+  color: rgb(134, 126, 163) !important;
   font-size: 24px;
 }
 .textarea::placeholder {
-  color: #2A1E5C !important;
-  font-size: 24px;
+  color: rgb(134, 126, 163) !important;
   padding-top: 10px;
 }
 </style>
