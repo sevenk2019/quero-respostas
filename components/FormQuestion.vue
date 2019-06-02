@@ -3,7 +3,7 @@
     <div class="question-form">
       <div class="field">
         <div class="control">
-          <input class="input" type="text" placeholder="Titulo da pergunta ?"/>
+          <input class="input" type="text" placeholder="Titulo da pergunta"/>
           <hr>  
           <textarea class="textarea" placeholder="O que você quer saber?"></textarea>
         </div>
