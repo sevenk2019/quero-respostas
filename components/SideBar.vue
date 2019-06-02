@@ -4,33 +4,21 @@
       <div class="panel-orange">
         <span class="top-users">Os mais sábios</span>
       </div>
-      <div class="user">
-        <figure class="image is-64x64 user-image">
-          <img class="is-64x64" src="https://api.adorable.io/avatars/64/abott@adorable.png">
-        </figure>
-        <div class="user-info">
-          <p class="user-name">Fulano da Silva</p>
-          <p class="user-score"><b>Pontuação:</b> 100</p>
-        </div>
-      </div>
-      <hr>
-      <div class="user">
-        <figure class="image is-64x64 user-image">
-          <img class="is-64x64" src="https://api.adorable.io/avatars/64/abott@adorable.png">
-        </figure>
-        <div class="user-info">
-          <p class="user-name">Fulano da Silva</p>
-          <p class="user-score"><b>Pontuação:</b> 100</p>
-        </div>
-      </div>
-      <hr>
-      <div class="user">
-        <figure class="image is-64x64 user-image">
-          <img class="is-64x64" src="https://api.adorable.io/avatars/64/abott@adorable.png">
-        </figure>
-        <div class="user-info">
-          <p class="user-name">Fulano da Silva</p>
-          <p class="user-score"><b>Pontuação:</b> 100</p>
+      <div
+        v-for="(user, index) in topUsers.filter(a => a.points !== null).sort((a,b) => { return a > b })"
+        v-bind:key="user.id"
+      >
+        <div v-if="index < 5">
+          <div class="user">
+            <figure class="image is-64x64 user-image">
+              <img class="is-64x64" :src="`https://api.adorable.io/avatar/${user.id}`" >
+            </figure>
+            <div class="user-info">
+              <p class="user-name">{{ user.name }}</p>
+              <p class="user-score"><b>Pontuação:</b> {{ user.points }}</p>
+            </div>
+          </div>
+          <hr v-if="index < 4">
         </div>
       </div>
       <span>&nbsp;</span>
@@ -39,6 +27,20 @@
     <div class="box has-text-centered" style="padding: 0; border-radius: 20px;">
       <div class="panel-blue">
         <span class="top-users">Tags</span>
+      </div>
+      <div class="card-content">
+        <div class="buttons">
+          <b-button
+            v-for="tag in topTags"
+            v-bind:key="tag.id"
+            tag="a"
+            href="#"
+            target="_blank"
+            size="is-small"
+            class="is-primary">
+            {{ tag.name }}
+          </b-button>
+        </div>
       </div>
       <span>&nbsp;</span>
     </div>
@@ -49,6 +51,24 @@
 <script>
 export default {
   name: 'SideBar',
+  data() {
+    return {
+      topUsers: [],
+      topTags: []
+    }
+  },
+
+  async created() {
+    try {
+      const topUsers = await this.$axios.$get('/top_users');
+      this.topUsers = topUsers;
+      const topTags = await this.$axios.$get('/top_tags');
+      this.topTags = topTags;
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 </script>
 

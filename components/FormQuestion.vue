@@ -3,9 +3,9 @@
     <div class="question-form">
       <div class="field">
         <div class="control">
-          <input class="input" type="text" placeholder="Titulo da pergunta"/>
+          <input class="input" v-model="title" type="text" placeholder="Titulo da pergunta"/>
           <hr>  
-          <textarea class="textarea" placeholder="O que você quer saber?"></textarea>
+          <textarea class="textarea" v-model="body" placeholder="O que você quer saber?"></textarea>
         </div>
       </div>
     </div>
@@ -19,9 +19,11 @@
       </multiselect>
     </div>
     <div class="buttons is-pulled-right">
-      <a class="button create-question-button">
+      <b-button
+        class="button create-question-button"
+        @click="postQuestion">
         <strong>Enviar pergunta</strong>
-      </a>
+      </b-button>
     </div>
   </div>
 </template>
@@ -51,6 +53,8 @@ export default {
   },
   data () {
     return {
+      title: '',
+      body: '',
       selectedTags: [],
       tags: []
     }
@@ -62,6 +66,39 @@ export default {
     } catch (error) {
       console.log(error);
     }
+  },
+
+  methods: {
+    postQuestion: function() {
+      if (this.$store.state.token.authorization.length > 0) {
+        let body = {
+          question: {
+            title: this.title,
+            body: this.body,
+            tags: this.selectedTags
+          }
+        }
+  
+        const self = this;
+        this.$axios
+        .$post('/questions', body, {
+          headers: {
+            Authorization: `Bearer ${self.$store.state.token.authorization}`,
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(function (response) {
+          self.$store.commit('questions/newQuestion', response);
+          alert("Pergunta enviada com sucesso!");
+        })
+        .catch(function (error) {
+          alert("Desculpa, não conseguimos enviar sua pergunta :(")
+          console.log(error);
+        });
+      } else {
+        alert("Por favor, entre no nosso sistema antes de enviar a sua pergunta!");
+      }
+    },
   }
 }
 </script>
