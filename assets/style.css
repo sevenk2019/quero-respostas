@@ -11,6 +11,10 @@
   background-color: #2A1E5C !important
 }
 
+a.navbar-item:hover{
+  color: #FF9B00 !important;
+}
+
 .primary-button {
   background-color: #FF9B00;
   color:#ffff;
@@ -26,6 +30,7 @@
 .primary-button:hover {
   background-color: #FF9B00;
   color: #fff;
+  margin-top: 2px;
 }
 .secundary-button {
   color: #2A1E5C;
@@ -178,4 +183,20 @@ hr {
   font-size: 14px !important;
   border: none !important;
   margin-right: 10px !important;
+}
+
+.user-image img {
+  border-radius: 100%;
+}
+.user {
+  padding: 20px;
+  text-align: center;
+}
+.user-name {
+ text-align: left;
+ font-weight: bold;
+ padding-top: 5px;
+}
+.user-score {
+  text-align: left;
 }

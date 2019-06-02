@@ -9,7 +9,7 @@
         </div>
       </div>
     </div>
-    <div class="buttons is-fullwidth">
+    <div class="buttons is-fullwidth tag-placeholder">
       <multiselect
         v-model="selectedTags"
         :options="tags"

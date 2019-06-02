@@ -29,17 +29,20 @@
         <span class="top-users">Tags</span>
       </div>
       <div class="card-content">
-        <div class="buttons">
-          <b-button
-            v-for="tag in topTags"
-            v-bind:key="tag.id"
-            tag="a"
-            href="#"
-            target="_blank"
-            size="is-small"
-            class="is-primary">
-            {{ tag.name }}
-          </b-button>
+        <div class="card-tags">
+          <p class="tag-description">Adicione tags aos favoritos</p>
+          <div class="buttons">
+            <b-button
+              v-for="tag in topTags"
+              v-bind:key="tag.id"
+              tag="a"
+              href="#"
+              target="_blank"
+              size="is-small"
+              class="tags-to-folow">
+              {{ tag.name }}
+            </b-button>
+          </div>
         </div>
       </div>
       <span>&nbsp;</span>
@@ -100,20 +103,29 @@ export default {
     width:40px;
     margin-right: 20px;
   }
-  .user-image img {
-    border-radius: 100%;
+  .card-tags {
+    padding-left: 30px;
+    padding-right: 20px;
   }
-  .user {
-    padding: 20px;
-    text-align: center;
+  .tags-to-folow {
+    border: solid 2px #41b883;
+    color: #41b883;
+    border-radius: 8px !important;
+    font-size: 14px !important;
   }
-  .user-name {
-   text-align: left;
-   font-weight: bold;
-   padding-top: 5px;
+  .tags-to-folow:hover {
+    background-color: #41b883;
+    color: #fff;
+    border: solid 2px #41b883;
   }
-  .user-score {
-    text-align: left;
+  .tags-following {
+    border: solid 2px #41b883;
+    color: #41b883;
+    border-radius: 8px !important;
+    font-size: 14px !important;
   }
-
+  .tag-description {
+    margin-top: -15px;
+    margin-bottom: 15px;
+  }
 </style>
