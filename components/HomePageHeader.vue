@@ -71,7 +71,8 @@ export default {
 
   data() {
     return {
-      userSkills: {}
+      userSkills: {},
+      isLogged: this.$store.state.token.authorization.length > 0
     }
   },
 

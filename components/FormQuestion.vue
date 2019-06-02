@@ -20,6 +20,7 @@
     </div>
     <div class="buttons is-pulled-right">
       <b-button
+        @click="postQuestion"
         class="button create-question-button"
       >
       <strong>Enviar pergunta</strong>
