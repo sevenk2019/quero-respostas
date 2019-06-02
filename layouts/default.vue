@@ -1,16 +1,10 @@
 <template>
   <div>
+    <Navbar/>
+    <HomePageHeader/>
+    <section class="container">
 
-  <Navbar/>
-
-  <HomePageHeader/>
-
-    <section class="main-content">
-
-      <div class="container">
-        <nuxt />
-      </div>
-
+      <nuxt />
     </section>
   </div>
 </template>

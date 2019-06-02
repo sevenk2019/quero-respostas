@@ -47,25 +47,29 @@ export default {
   data() {
     return {
       activeTab: 0,
-      followingQuestions: [],
-      allQuestions: []
     }
   },
 
   computed: {
     authorization() {
       return this.$store.state.token.authorization
+    },
+    allQuestions() {
+      return this.$store.state.questions.allQuestions
+    },
+    followingQuestions() {
+      return this.$store.state.questions.followingQuestions
     }
   },
 
   async created() {
     try {
       const allQuestions = await this.$axios.$get('/feed');
-      this.allQuestions = allQuestions;
+      this.$store.commit('questions/setAllQuestions', allQuestions);
       
       if (this.authorization.length > 0) {
         const followingQuestions = await this.$axios.$get('/feed/following');
-        this.followingQuestions = followingQuestions;
+        this.$store.commit('questions/setFollowingQuestions', followingQuestions);
       }
     } catch (error) {
       console.log(error);

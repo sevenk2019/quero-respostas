@@ -4,7 +4,7 @@
       <div class="media column is-2">
         <div class="media-left">
           <p class="image is-64x64">
-            <img class="is-rounded" src="https://api.adorable.io/avatars/64/abott@adorable.png">
+            <img class="is-rounded" :src="`https://api.adorable.io/avatar/${question.user.id}`">
           </p>
           <p class="title is-7">{{ question.user.name }}</p>
           <p class="subtitle is-7">{{ question.user.university }}</p>
