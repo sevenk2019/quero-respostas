@@ -157,6 +157,9 @@
 .tabs li.is-active a {
   border-bottom-color: #FF9B00;
 }
+.tabs li {
+  width: 50%;
+}
 
 hr {
   border: 1px solid #e0e0e0;
