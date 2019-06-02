@@ -3,7 +3,9 @@
     <div class="question-form">
       <div class="field">
         <div class="control">
-          <textarea class="textarea" placeholder="Quero saber..."></textarea>
+          <input class="input" type="text" placeholder="Titulo da pergunta ?"/>
+          <hr>  
+          <textarea class="textarea" placeholder="O que você quer saber?"></textarea>
         </div>
       </div>
     </div>
@@ -17,6 +19,18 @@
     </div>
   </div>
 </template>
+
+<style>
+.input::placeholder {
+  color: #2A1E5C !important;
+  font-size: 24px;
+}
+.textarea::placeholder {
+  color: #2A1E5C !important;
+  font-size: 24px;
+  padding-top: 10px;
+}
+</style>
 
 <script>
 export default {
